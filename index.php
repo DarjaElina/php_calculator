@@ -11,8 +11,10 @@
 <body>
   <h1>PHP Calculator</h1>
   <form method="GET">
-    <label for="number1">Enter first number</label><input name="number1" id="number1" type="number">
-    <label for="number2">Enter second number</label><input id="number2" name="number2" type="number">
+    <label for="number1">Enter first number</label>
+    <input name="number1" id="number1" type="number">
+    <label for="number2">Enter second number</label>
+    <input id="number2" name="number2" type="number">
     <label for="operation">Select operation</label>
       <select name="operation" id="operation">
         <option value="add">+ (Add)</option>
@@ -26,8 +28,10 @@
     
     <?php 
       include 'calculator.php';
-     echo "<h3>Result: <span>$result</span></h3>";
-     echo "<p>$error_message</p>";
+      echo "<h3>Result: <span>$result</span></h3>";
+      if (strlen($error_message) > 0) {
+        echo "<p>$error_message</p>";
+      }
     ?>
 </body>
 </html>
