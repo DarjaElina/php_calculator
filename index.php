@@ -5,6 +5,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="styles.css">
   <title>Document</title>
 </head>
 <body>
@@ -14,15 +15,19 @@
     <label for="number2">Enter second number</label><input id="number2" name="number2" type="number">
     <label for="operation">Select operation</label>
       <select name="operation" id="operation">
-        <option value="add">+</option>
-        <option value="subtract">-</option>
-        <option value="multiply">*</option>
-        <option value="divide">/</option>
+        <option value="add">+ (Add)</option>
+        <option value="subtract">- (Subtract)</option>
+        <option value="multiply">* (Multiply)</option>
+        <option value="divide">/ (Divide)</option>
       </select>
 
       <input type="submit" value="Calculate">
   </form>
-    <h3>Result:</h3>
-    <?php include 'calculator.php'; echo "<p>$result</p>"?>
+    
+    <?php 
+      include 'calculator.php';
+     echo "<h3>Result: <span>$result</span></h3>";
+     echo "<p>$error_message</p>";
+    ?>
 </body>
 </html>

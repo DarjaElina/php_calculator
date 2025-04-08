@@ -1,9 +1,14 @@
 <?php
 $result = '';
+$error_message = '';
 
-if (isset($_GET['number1']) && isset($_GET['number2'])) {
-  $num1 = $_GET['number1'];
-  $num2 = $_GET['number2'];
+if (
+  isset($_GET['number1'], $_GET['number2'], $_GET['operation']) &&
+  is_numeric($_GET['number1']) &&
+  is_numeric($_GET['number2'])
+) {
+  $num1 = (float)$_GET['number1'];
+  $num2 = (float)$_GET['number2'];
   $operation = $_GET['operation'];
 
   if ($operation === 'add') {
@@ -13,6 +18,16 @@ if (isset($_GET['number1']) && isset($_GET['number2'])) {
   } else if ($operation === 'multiply') {
     $result = $num1 * $num2;
   } else if ($operation === 'divide') {
-    $result = $num1 / $num2;
+    if ($num2 == 0) {
+      $result = '';
+      $error_message = 'Cannot divide by zero!';
+    } else {
+      $result = $num1 / $num2;
+    }
+  } else {
+    $result = 'Invalid operation selected.';
   }
+} else {
+  $result = '';
+  $error_message = 'Please enter valid numbers.';
 }
