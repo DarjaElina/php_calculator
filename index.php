@@ -9,19 +9,20 @@
 </head>
 <body>
   <h1>PHP Calculator</h1>
-  <?php
-    include 'calculator.php';
-  ?>
-  <label for="number1">Enter first number</label><input id="number1" type="number">
-  <label for="number2">Enter second number</label><input id="number2" type="number">
-  <div class="buttons">
-    <button>+</button>
-    <button>-</button>
-    <button>*</button>
-    <button>/</button>
+  <form method="GET">
+    <label for="number1">Enter first number</label><input name="number1" id="number1" type="number">
+    <label for="number2">Enter second number</label><input id="number2" name="number2" type="number">
+    <label for="operation">Select operation</label>
+      <select name="operation" id="operation">
+        <option value="add">+</option>
+        <option value="subtract">-</option>
+        <option value="multiply">*</option>
+        <option value="divide">/</option>
+      </select>
 
-    <p>Result:</p>
-    <h3></h3>
-  </div>
+      <input type="submit" value="Calculate">
+  </form>
+    <h3>Result:</h3>
+    <?php include 'calculator.php'; echo "<p>$result</p>"?>
 </body>
 </html>
